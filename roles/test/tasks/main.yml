@@ -1,9 +1,0 @@
----
-- name: Get username
-  ansible.builtin.shell: whoami
-  register: whoami_result
-
-- name: Print username
-  ansible.builtin.debug:
-    msg: user is {{ whoami_result.stdout }}
-...
