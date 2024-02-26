@@ -1,3 +1,3 @@
-# Ansible Role for installing [PyCA](https://github.com/opencast/pyCA)
+# Ansible role for installing [pyCA](https://github.com/opencast/pyCA)
 
 Currently supports Debian and CentOS.
