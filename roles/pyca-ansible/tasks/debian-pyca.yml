@@ -1,0 +1,30 @@
+---
+
+- name: (Debian) Ensure the packages necessary for PyCA are installed
+  become: true
+  ansible.builtin.apt:
+    name: ['apt-transport-https', 'ca-certificates', 'gnupg']
+    state: present
+    update_cache: true
+
+- name: (Debian) Ensure the key is on the keyring
+  become: true
+  ansible.builtin.apt_key:
+    url: https://pyca.deb.opencast.org/gpg.key
+    state: present
+
+- name: (Debian) Ensure opencast-pyca.list in sources.list.d is present and has the right contents
+  become: true
+  ansible.builtin.copy:
+    content: deb [arch=all] https://pyca.deb.opencast.org/opencast-pyca buster main
+    dest: /etc/apt/sources.list.d/opencast-pyca.list
+    mode: '644'
+
+- name: (Debian) Ensure PyCA is installed
+  become: true
+  ansible.builtin.apt:
+    name: opencast-pyca
+    state: present
+    update_cache: true
+
+...

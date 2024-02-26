@@ -1,0 +1,21 @@
+---
+
+- name: (CentOS) Ensure lkiesow/pyca is enabled
+  become: true
+  community.general.copr:
+    name: lkiesow/pyca
+    state: enabled
+
+- name: (CentOS) Ensure EPEL is installed
+  become: true
+  ansible.builtin.dnf:
+    name: epel-release
+    state: present
+
+- name: (CentOS) Ensure PyCA is installed
+  become: true
+  ansible.builtin.dnf:
+    name: pyca
+    state: present
+
+...

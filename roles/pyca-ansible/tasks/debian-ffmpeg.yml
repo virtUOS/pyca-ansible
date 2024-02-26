@@ -1,0 +1,10 @@
+---
+
+- name: (Debian) Ensure FFmpeg is installed
+  become: true
+  ansible.builtin.apt:
+    name: ffmpeg
+    state: present
+    update_cache: true
+
+...
