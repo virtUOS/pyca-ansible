@@ -3,7 +3,10 @@
 - name: (Debian) Ensure the packages necessary for pyCA are installed
   become: true
   ansible.builtin.apt:
-    name: ['apt-transport-https', 'ca-certificates', 'gnupg']
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - gnupg
     state: present
     update_cache: true
 
