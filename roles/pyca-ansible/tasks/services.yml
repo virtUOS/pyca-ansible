@@ -1,40 +1,17 @@
 ---
 
-- name: Ensure the PyCA services are started and enabled (1/6)
+- name: Ensure the pyCA services are started and enabled
   become: true
   ansible.builtin.systemd:
-    name: pyca-agentstate.service
+    name: '{{ item }}.service'
     enabled: true
     state: started
-- name: Ensure the PyCA services are started and enabled (2/6)
-  become: true
-  ansible.builtin.systemd:
-    name: pyca-capture.service
-    enabled: true
-    state: started
-- name: Ensure the PyCA services are started and enabled (3/6)
-  become: true
-  ansible.builtin.systemd:
-    name: pyca-ingest.service
-    enabled: true
-    state: started
-- name: Ensure the PyCA services are started and enabled (4/6)
-  become: true
-  ansible.builtin.systemd:
-    name: pyca-schedule.service
-    enabled: true
-    state: started
-- name: Ensure the PyCA services are started and enabled (5/6)
-  become: true
-  ansible.builtin.systemd:
-    name: pyca-ui.service
-    enabled: true
-    state: started
-- name: Ensure the PyCA services are started and enabled (6/6)
-  become: true
-  ansible.builtin.systemd:
-    name: pyca.service
-    enabled: true
-    state: started
+  loop:
+    - pyca-agentstate
+    - pyca-capture
+    - pyca-ingest
+    - pyca-schedule
+    - pyca-ui
+    - pyca
 
 ...
