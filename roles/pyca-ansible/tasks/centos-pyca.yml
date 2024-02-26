@@ -12,7 +12,7 @@
     name: epel-release
     state: present
 
-- name: (CentOS) Ensure PyCA is installed
+- name: (CentOS) Ensure pyCA is installed
   become: true
   ansible.builtin.dnf:
     name: pyca

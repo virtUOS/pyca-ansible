@@ -1,6 +1,6 @@
 ---
 
-- name: (Debian) Ensure the packages necessary for PyCA are installed
+- name: (Debian) Ensure the packages necessary for pyCA are installed
   become: true
   ansible.builtin.apt:
     name: ['apt-transport-https', 'ca-certificates', 'gnupg']
@@ -20,7 +20,7 @@
     dest: /etc/apt/sources.list.d/opencast-pyca.list
     mode: '644'
 
-- name: (Debian) Ensure PyCA is installed
+- name: (Debian) Ensure pyCA is installed
   become: true
   ansible.builtin.apt:
     name: opencast-pyca
