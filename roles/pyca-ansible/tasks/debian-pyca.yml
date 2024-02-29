@@ -16,10 +16,13 @@
     url: https://pyca.deb.opencast.org/gpg.key
     state: present
 
-- name: (Debian) Ensure opencast-pyca.list in sources.list.d is present and has the right contents
+- name: >-
+    (Debian) Ensure opencast-pyca.list in sources.list.d is present and has the
+    right contents
   become: true
   ansible.builtin.copy:
-    content: deb [arch=all] https://pyca.deb.opencast.org/opencast-pyca buster main
+    content: >-
+      deb [arch=all] https://pyca.deb.opencast.org/opencast-pyca buster main
     dest: /etc/apt/sources.list.d/opencast-pyca.list
     mode: '644'
 

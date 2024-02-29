@@ -1,7 +1,8 @@
 ---
 
 - name: FFmpeg and pyCA on the respective platforms
-  ansible.builtin.include_tasks: "{{ {'debian': 'debian', 'redhat': 'centos'}[ansible_os_family | lower] }}-{{ item }}.yml"
+  ansible.builtin.include_tasks: "{{ {'debian': 'debian', 'redhat': 'centos'}\
+    [ansible_os_family | lower] }}-{{ item }}.yml"
   loop:
     - ffmpeg
     - pyca

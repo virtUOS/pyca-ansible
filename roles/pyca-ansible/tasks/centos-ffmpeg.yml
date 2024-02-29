@@ -4,7 +4,8 @@
   become: true
   ansible.builtin.dnf:
     disable_gpg_check: true
-    name: https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-{{ ansible_distribution_version }}.noarch.rpm
+    name: "https://mirrors.rpmfusion.org/free/el/rpmfusion-free-release-\
+      {{ ansible_distribution_version }}.noarch.rpm"
     state: present
 
 - name: (CentOS) Ensure FFmpeg is installed
