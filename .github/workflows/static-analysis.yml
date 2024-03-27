@@ -15,7 +15,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v5
       - run: pip install yamllint flake8 bandit
-      - run: yamllint -s roles/ .github/workflows/
+      - run: yamllint roles/ .github/workflows/
         id: yamllint
         continue-on-error: true
       - run: flake8 roles/
@@ -25,6 +25,6 @@ jobs:
         id: bandit
         continue-on-error: true
       - run: 'false'  # Fail the workflow if one of the analyzers complained
-        if: ${{ steps.flake8.outcome != 'success' }}
+        if: ${{ steps.yamllint.outcome != 'success' || steps.flake8.outcome != 'success' || steps.bandit.outcome != 'success' }}
 
 ...
