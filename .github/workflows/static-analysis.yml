@@ -15,7 +15,7 @@ jobs:
           persist-credentials: false
       - uses: actions/setup-python@v5
       - run: pip install yamllint flake8 bandit
-      - run: yamllint roles/ .github/workflows/
+      - run: yamllint -s roles/
         id: yamllint
         continue-on-error: true
       - run: flake8 roles/
